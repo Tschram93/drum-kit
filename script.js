@@ -1,5 +1,11 @@
 window.addEventListener('keydown', function (e) {
-    console.log(e);
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    // if no audio element it stops the function from running.
+    if (!audio)
+        return;
+
+    // When key is pressed, the console log will display the keyCode
+    // console.log(e);
 });
 
 // A = keycode(65)
