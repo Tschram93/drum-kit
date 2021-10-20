@@ -1,6 +1,6 @@
 const keys = document.querySelectorAll('.key');
 
-window.addEventListener('keydown', function (e) {
+function playSound(e) {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
     // if no audio element it stops the function from running.
@@ -16,7 +16,7 @@ window.addEventListener('keydown', function (e) {
 
 
     // console.log(key);
-});
+}
 
 function removeTransition(e) {
     if (e.propertyName !== 'transform')
@@ -30,6 +30,7 @@ keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
 // When key is pressed, the console log will display the keyCode
 // console.log(e);
+window.addEventListener('keydown', playSound);
 
 // A = keycode(65)
 // S = keycode(83)
