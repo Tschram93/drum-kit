@@ -18,8 +18,12 @@ window.addEventListener('keydown', function (e) {
     // console.log(key);
 });
 
-function removeTrasition(e) {
-    console.log(e);
+function removeTransition(e) {
+    if (e.propertyName !== 'transform')
+        // it skips if it is not transformed
+        return;
+    // console.log(e.propertyName);
+    this.classList.remove('playing');
 }
 
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
